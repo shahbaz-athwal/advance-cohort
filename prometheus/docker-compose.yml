@@ -17,6 +17,13 @@ services:
     networks:
       - monitoring
 
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3001:3000"
+    networks:
+      - monitoring
+
 networks:
   monitoring:
     
