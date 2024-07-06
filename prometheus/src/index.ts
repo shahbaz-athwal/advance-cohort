@@ -8,8 +8,9 @@ app.use(express.json());
 
 app.use(requestCountMiddleware)
 
-app.get("/user", (req, res) => {
-    res.status(201).send({
+app.get("/user", async (req, res) => {
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    res.send({
         name: "John Doe",
         age: 25,
     });
