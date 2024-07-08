@@ -4,7 +4,15 @@ metadata:
   name: nginx
 spec:
   containers:
-  - name: nginx
-    image: nginx
-    ports:
-    - containerPort: 80
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
+        
+    - name: db
+      image: postgres
+      ports:
+        - containerPort: 5432
+      env:
+        - name: POSTGRES_PASSWORD
+          value: "postgres"
