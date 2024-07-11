@@ -1,3 +1,5 @@
+# this file conatin all resources for the k8s cluster. 
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
