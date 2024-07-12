@@ -101,10 +101,10 @@ spec:
             name: apache-service
             port:
               number: 80
-      - path: /env
+      - path: /env2
         pathType: Prefix
         backend:
           service:
-            name: express-service
+            name: express-service-2
             port:
               number: 3000

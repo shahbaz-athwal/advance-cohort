@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecom-backend-deployment-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ecom-backend-2
+  template:
+    metadata:
+      labels:
+        app: ecom-backend-2
+    spec:
+      containers:
+      - name: ecom-backend-2
+        image: 100xdevs/env-backend
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+        - name: env-file
+          readOnly: true
+          mountPath: "/app/config"
+      volumes:
+        - name: env-file
+          secret:
+            secretName: dotfile-secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: express-service-2
+  namespace: default
+spec:
+  selector:
+    app: ecom-backend-2
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: ClusterIP

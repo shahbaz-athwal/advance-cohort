@@ -9,4 +9,4 @@ data:
   cache_size: "1000"
   payment_gateway_url: "https://payment-gateway.example.com"
   max_cart_items: "50"
-  session_timeout: "3600"
+  session_timeout: "3601"
